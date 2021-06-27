@@ -1,0 +1,45 @@
+
+CURENCY 
+
+filters: {
+    numberFormatter(value) {
+      const options = {
+        style: "currency",
+        currency: "INR",
+      };
+      return Intl.NumberFormat("hi-IN", options).format(value);
+    },
+  },
+
+
+///////////////////////Error
+this.error = err.response.data.error;
+
+
+/////////////////Alert 
+ <v-alert
+              v-model="isError"
+              border="left"
+              close-text="Close Alert"
+              color="error"
+              dark
+              dismissible
+              >{{ errorMessage }}
+            </v-alert>
+
+
+///////////////////////Snackbar
+ <v-snackbar v-model="snackBar" :timeout="2000" top color="success">
+      <span>Awesome! You added a new Category</span>
+      <v-btn text @click="snackBar = false">Close</v-btn>
+    </v-snackbar>
+//////////////////Validation
+
+Character only - ^[a-zA-Z]*$
+number only - ^[0-9]*$
+
+
+/////////////////////AXIOS
+export const imgurl="http://localhost:3000/"
+axios.defaults.baseURL="http://localhost:3000/"
+
