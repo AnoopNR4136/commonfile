@@ -172,3 +172,8 @@ async function bootstrap() {
 }
 bootstrap();
 
+
+
+//////////////nestjsx
+npm i @nestjsx/crud class-transformer class-validator
+
