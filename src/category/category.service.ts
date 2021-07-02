@@ -12,7 +12,7 @@ import { exception } from 'console';
 export class CategoryService {
   constructor(
     @InjectRepository(Category)
-    private readonly categoryRepository: Repository<Category>,
+    private readonly categoryRepository: Repository<Category>,//similiar to private categoryRepository:Rpository<Category>,this.categoryRepository =categoryRepository
   ) {}
 
   async createCategory(
