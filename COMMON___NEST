@@ -146,6 +146,17 @@ app.useGlobalPipes(new ValidationPipe());
   SwaggerModule.setup('api', app, document);
 
 
+nsest cli jsoon
+
+"compilerOptions": {
+    "deleteOutDir": true,
+    "plugins":["@nestjs/swagger/plugin"]
+  }
+
+
+
+
+
 ??????????????????????????????serve static
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
