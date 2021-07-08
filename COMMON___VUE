@@ -65,5 +65,8 @@ this.$store
       
   
     },
+//caling
+
+commit('auth_success', token)
 
 
