@@ -42,4 +42,28 @@ number only - ^[0-9]*$
 /////////////////////AXIOS
 export const imgurl="http://localhost:3000/"
 axios.defaults.baseURL="http://localhost:3000/"
+/////////////Vuex
+actions:{
+login({commit},user){
+
+    }
+}
+//Calling
+this.$store
+        .dispatch("login", {
+          user_email: this.email,
+          user_password: this.password,
+        })
+        ////////
+//mutation
+
+  mutations: {
+   
+     auth_success(state, token){
+    state.status = 'success'
+       state.token = token
+      
+  
+    },
+
 
