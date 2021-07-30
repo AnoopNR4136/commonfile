@@ -1,4 +1,11 @@
 
+Axios
+
+npm install axios
+axios.defaults.baseURL = ""
+
+
+
 CURENCY 
 
 filters: {
