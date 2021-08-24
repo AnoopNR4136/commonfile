@@ -12,6 +12,49 @@ npm i --save @nestjs/typeorm typeorm pg
 
 
 
+//////////////////////////////////////////////////////////////config
+ npm i --save @nestjs/config
+ 
+ .env
+ 
+ HOST=localhost
+PORT=5432
+USER_NAME=postgres
+PASSWORD=postgres
+DATABASE=db_auth
+CONNECTION_TYPE=postgres
+SYNCHRONIZE=true
+ 
+ config.ts
+ 
+ import { Injectable } from '@nestjs/common';
+import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
+import { ConfigService } from '@nestjs/config';
+
+
+
+@Injectable()
+export class TypeOrmConfigService implements TypeOrmOptionsFactory {
+  constructor(private configService: ConfigService) {}
+
+  async createTypeOrmOptions(): Promise<TypeOrmModuleOptions> {
+    const options = {
+      type: this.configService.get('CONNECTION_TYPE'),
+      host: this.configService.get('HOST'),
+      port: this.configService.get<number>('PORT'),
+      username: this.configService.get('USER_NAME'),
+      password: this.configService.get('PASSWORD'),
+      database: this.configService.get('DATABASE'),
+      synchronize: this.configService.get('SYNCHRONIZE'),
+      autoLoadEntities: true,
+      logging: true,
+      entities: ['dist/**/*.entity{.ts,.js}'],
+    } as TypeOrmModuleOptions;
+    return options;
+  }
+}
+
+
 
 
 
