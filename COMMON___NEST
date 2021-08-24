@@ -1,6 +1,6 @@
 ////////////////////////////////New Pjct
 in cmd prompt
-npm install -g @nest/cli
+npm i -g @nestjs/cli
 nest update
 
 
