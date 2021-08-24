@@ -1,4 +1,9 @@
 ////////////////////////////////New Pjct
+in cmd prompt
+npm install -g @nest/cli
+nest update
+
+
 nest new pjct_name
 
 /////////////////TypeOrm
