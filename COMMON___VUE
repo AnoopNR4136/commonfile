@@ -10,7 +10,7 @@ vue add vuetify
 Axios
 -----------------------------
 
-npm install axios
+npm install --save axios
 axios.defaults.baseURL = ""
 
 
