@@ -95,3 +95,32 @@ this.$store
 commit('auth_success', token)
 
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////Child Components
+
+{
+    path: "/home",
+
+    component: Home,
+    children: [
+      {
+        name: "Home",
+        path: "",
+        component: Upload,
+      },
+      {
+        name: "View",
+        path: "view",
+        component: View,
+      },
+    ],
+  },
+  
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////click to
+
+:to="{ name: 'ProductView', params: { id: pdct.product_id } }"
+
