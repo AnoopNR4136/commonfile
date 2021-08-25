@@ -1,11 +1,29 @@
 
+vue create my-app
+
+
+vue add vuetify
+
+
+
+
 Axios
+-----------------------------
 
 npm install axios
 axios.defaults.baseURL = ""
 
 
+      axios .post("/portal/upload/" + this.uuid, data, {
+            headers: { Authorization: "Bearer " + token },
+          })
 
+
+ localStorage.setItem("token", res.data.token);
+          this.$router.push({ name: "Home" });
+const token = localStorage.getItem("token");
+
+---------------------------------------
 CURENCY 
 
 filters: {
