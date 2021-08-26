@@ -62,7 +62,19 @@ this.error = err.response.data.error;
 
 Character only - ^[a-zA-Z]*$
 number only - ^[0-9]*$
+:rules="[v => !!v || 'Item is required']"
 
+:rules="[
+            (v) => !!v || 'Amount is required',
+            (v) => v > 0 || 'Amount must be a non negative number',
+          ]"
+    
+    
+button click validation 
+
+validate () {
+        this.$refs.form.validate()
+      },
 
 /////////////////////AXIOS
 export const imgurl="http://localhost:3000/"
@@ -95,7 +107,14 @@ this.$store
 commit('auth_success', token)
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////UUID
 
+npm install uuid
+
+import { uuid } from "vue-uuid";
+
+ uuid: uuid.v1(),
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////Child Components
