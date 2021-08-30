@@ -13,7 +13,33 @@ npm i --save @nestjs/typeorm typeorm pg
 
 
 //////////////////////////////////////////////////////////////config
- npm i --save @nestjs/config
+ 1>  //Installing config npm
+ 
+   npm i --save @nestjs/config    
+ 2>  //enabling/registering config
+ 
+ ConfigModule.forRoot({
+      isGlobal: true,   //can be used in any modules
+    }),
+    
+       OR
+     ConfigModule.forRoot(), //Can be use only in root module (ie app module)
+     //Note : By registering env it look for the .env file in ROOT DIRECTORY.
+     //OBJECT PASS to forRoot
+     //1> isGlobal :true => can be used in any modules
+     //2> envFilePath: '.development.env',  envFilePath: ['.env.development.local', '.env.development'], => other than default Path (ie ROOT DIRECTORY)
+     
+     
+     ////procces.env doesnt work in outside of any module (files other than controller,service ,repository in the module) so we use dependency injection .
+     //constructor(private configService: ConfigService) {}
+     //  type: this.configService.get('HOST'),  
+     
+  3> geting values 
+  
+   console.log(process.env);
+   console.log(process.env.HOST);
+ --------------------------
+ 
  
  .env
  
@@ -37,7 +63,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 
   async createTypeOrmOptions(): Promise<TypeOrmModuleOptions> {
     const options = {
-      type: this.configService.get('CONNECTION_TYPE'),
+      type: this.configService.get('CONNECTION_TYPE'),  
       host: this.configService.get('HOST'),
       port: this.configService.get<number>('PORT'),
       username: this.configService.get('USER_NAME'),
@@ -67,7 +93,7 @@ import { UserModule } from './user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true,
+      isGlobal: true,   //enabling config
     }),
     // TypeOrmModule.forRoot(typeOrmConfig),
     TypeOrmModule.forRootAsync({
