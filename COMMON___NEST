@@ -28,7 +28,19 @@ npm i --save @nestjs/typeorm typeorm pg
      //OBJECT PASS to forRoot
      //1> isGlobal :true => can be used in any modules
      //2> envFilePath: '.development.env',  envFilePath: ['.env.development.local', '.env.development'], => other than default Path (ie ROOT DIRECTORY)
-     
+     //3>validating env variables ==> we use envalid library for that =>npm install @hapi/joi @types/hapi__joi
+     //  import * as Joi from '@hapi/joi';
+     //
+                         //ConfigModule.forRoot({
+                         // validationSchema: Joi.object({
+                         // POSTGRES_HOST: Joi.string().required(),
+                         //  POSTGRES_PORT: Joi.number().required(),
+                         //  POSTGRES_USER: Joi.string().required(),
+                         //  POSTGRES_PASSWORD: Joi.string().required(),
+                         //  POSTGRES_DB: Joi.string().required(),
+                         //  PORT: Joi.number(),
+                         //})
+
      
      ////procces.env doesnt work in outside of any module (files other than controller,service ,repository in the module) so we use dependency injection .
      //constructor(private configService: ConfigService) {}
