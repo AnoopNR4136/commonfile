@@ -240,7 +240,7 @@ npm i --save @nestjs/jwt @nestjs/passport
   
 
 
-
+private jwtService: JwtService,
 const token = this.jwtService.sign({
             user_name: createUserDto.user_name,
           });
