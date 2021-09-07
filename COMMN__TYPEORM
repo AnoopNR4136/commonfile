@@ -1,1 +1,22 @@
 
+https://orkhan.gitbook.io/typeorm/docs/decorator-reference
+--------------------------------------------------------------------------------------------------------------
+          Entity Options
+
+
+
+@Entity({
+    name: "users",
+    engine: "MyISAM",
+    database: 'example_dev',
+    schema: 'schema_with_best_tables',
+    synchronize: false,
+    orderBy: {
+        name: "ASC",
+        id: "DESC"
+    }
+})
+export class User {}
+
+
+----------------------------------------------------------------------------------------------------------
