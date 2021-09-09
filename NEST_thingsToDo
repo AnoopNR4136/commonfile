@@ -1,0 +1,5 @@
+1        for log-in post request automatically return 201(created status insted of ok) =>repalace that to 200 using  @HttpCode(200).
+
+2     	jwt secret and expiration time using .env
+
+3	      use enum for status code in exceptons (read https://wanago.io/2020/06/01/api-nestjs-error-handling-validation/) 
