@@ -1,0 +1,38 @@
+//////////////////////////////////////////////////////////////SELECT
+
+
+
+ <v-select
+            :items="data.get_all_category"
+            item-text="category_name"
+            item-value="category_id"
+            label="Category"
+            outlined
+          >
+          </v-select>
+          
+          
+ //////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ 
+ /////////////////Alert 
+ <v-alert
+              v-model="isError"
+              border="left"
+              close-text="Close Alert"
+              color="error"
+              dark
+              dismissible
+              >{{ errorMessage }}
+            </v-alert>
+            
+ ////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ 
+ ///////////////////////Snackbar
+ <v-snackbar v-model="snackBar" :timeout="2000" top color="success">
+      <span>Awesome! You added a new Category</span>
+      <v-btn text @click="snackBar = false">Close</v-btn>
+    </v-snackbar>
