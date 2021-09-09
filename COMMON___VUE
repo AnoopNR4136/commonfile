@@ -130,3 +130,6 @@ import { uuid } from "vue-uuid";
 
 :to="{ name: 'ProductView', params: { id: pdct.product_id } }"
 
+to page by code
+this.$router.push({ name: "Home" })
+
