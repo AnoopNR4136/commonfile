@@ -1,0 +1,172 @@
+                                                      MUTATIONS
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+  
+  -----------------------------------------------------
+  AT button Click
+  -----------------------------------------------------
+  let result = await this.$apollo.mutate({
+        mutation: gql`
+          mutation($cat_id: Float!, $subcat: String!) {
+            createSubcategory(
+              subcategory: { subcategory_name: $subcat, category_id: $cat_id }
+            ) {
+              subcategory_id
+            }
+          }
+        `,
+        variables: {
+          cat_id: this.category,
+          subcat: this.subcategory,
+        },
+      });
+      
+      ----------------------------------------------------------
+      At Button Click arg as Object
+      ----------------------------------------------------------
+      let result = this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation($data: CreateAuthInput!) {
+              login(login: $data) {
+                token
+              }
+            }
+          `,
+          variables: {
+            data: {
+              user_name: this.user_name,
+              user_password: this.password,
+            },
+          },
+        })
+        .then((res) => {})
+        .catch()
+        
+        
+        
+        
+        
+        
+                                                                
+                                                                      
+                                                                      QUERY 
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ 
+ Direct Method
+---------------------------------------------------------------------
+apollo: {
+    get_all_category: gql`
+      query {
+        get_all_category {
+          category_id
+          category_name
+        }
+      }
+    `,
+  },
+        
+        Button Click
+  ---------------------------------------------------------------------
+        
+        async getProduct() {
+      let result = await this.$apollo.query({
+        query: gql`
+          query {
+            product_by_id(id: ${this.subcategory}) {
+              product_id
+              product_name
+            }
+          }
+        `,
+      });
+      this.productList = result.data.product_by_id;
+    },
+    
+    
+    
+    
+    
+        Using Apollo Query
+      ----------------------------------------------------------------------------------------  
+        
+        <ApolloQuery
+      :query="
+        (gql) => gql`
+          query {
+            get_all_category {
+              category_id
+              category_name
+            }
+          }
+        `
+      "
+    >
+      <template v-slot="{ result: { loading, error, data } }">
+        <div v-if="loading"></div>
+        <div v-if="data">
+          <v-select
+            @change="categoryChange()"
+            v-model="category"
+            :items="data.get_all_category"
+            item-text="category_name"
+            item-value="category_id"
+            label="Category"
+            outlined
+          >
+          </v-select>
+        </div>
+        <div v-if="error"></div>
+      </template>
+    </ApolloQuery>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                                              Setting token/Removing token
+  /////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  
+  using vue-apollo.js file method
+  -------------------------------
+  
+  import { onLogin, onLogout } from "../vue-apollo";
+  
+   onLogin(this.$apollo.provider.defaultClient, res.data.login.token);
+   
+   onLogout(this.$apollo.provider.defaultClient);
+   
+   old method
+   ---------------------------
+   localStorage.setItem("apollo-token", res.data.login.token);
+   localStorage.removeItem("apollo-token");
+   
+   
