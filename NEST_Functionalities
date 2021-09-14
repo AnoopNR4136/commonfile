@@ -9,3 +9,72 @@
 
 
 
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////   Transaction   ///////////////////////////////////////////////////////////////////////////
+
+
+
+  async uploadDate(
+    createMarketportalDto: CreateMarketportalDto,
+    user: Login,
+    id: string,
+  ): Promise<{}> {
+    const uuid = uuidv4();
+    // get a connection and create a new query runner
+    const connection = getConnection();
+    const queryRunner = connection.createQueryRunner();
+
+    // establish real database connection using our new query runner
+    await queryRunner.connect();
+
+    // lets now open a new transaction:
+    await queryRunner.startTransaction();
+    try {
+      await queryRunner.manager.save(Logs, {
+        excel_id: id,
+        admin_id: user.admin_id as any,
+      });
+
+      await queryRunner.manager.save(
+        Marketportal,
+        createMarketportalDto.data_list,
+        
+      );
+
+      // commit transaction now:
+      await queryRunner.commitTransaction();
+      return { message: 'Data Uploaded' };
+    } catch (error) {
+      // since we have errors let's rollback changes we made
+      await queryRunner.rollbackTransaction();
+
+      console.log(' EE: ' + error);
+
+      throw new HttpException(
+        {
+          ///Mostly Null value error
+          message: 'Server Error',
+          status: HttpStatus.INTERNAL_SERVER_ERROR,
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    } finally {
+      // you need to release query runner which is manually created:
+      await queryRunner.release();
+    }
+  }
+
+
+
+
+
+
+
+
+
