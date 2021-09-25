@@ -1,0 +1,3 @@
+Difference b/w if else and v-show
+  v-show set display property to none or display. (most useful)
+  v-if remove/display the content 
