@@ -11,3 +11,11 @@
           
           
  3> USe finally to stop spinners
+ 
+ 
+ 
+ 4> use lazy , trim modifiers for text type input
+ 
+      lazy => data property will update at the time of typing.update only sfter finish move cursor point from field
+      trim =>remove unwanted spacing in text type
+      eg:<input type="text" v-model.lazy.trim="name">
