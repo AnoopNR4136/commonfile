@@ -32,8 +32,21 @@ https://typeorm.io/#/entities/column-types
 Array Colun:
 -------------
 
- @Column("simple-array")
-    names: string[];
+
+    
+    
+ @Column('int', { array: true })
+  numberArray: number[];
+
+  @Column('text', { array: true })
+  stringArray: string[];   
+  
+  
+  @Column('jsonb') //jsonb is more powerfull than json
+  personaldetails: personaldetails;
+
+  @Column('json')
+  otherdetails: personaldetails;
     
  Column with generartd valus
  ------------------------
