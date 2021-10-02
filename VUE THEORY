@@ -1,3 +1,8 @@
 Difference b/w if else and v-show
   v-show set display property to none or display. (most useful)
   v-if remove/display the content 
+  
+  
+Difference between Created and Mounted hook
+  Created => access variables ,methods,and other properties etc.
+  Mounted => rendering the elements. 
