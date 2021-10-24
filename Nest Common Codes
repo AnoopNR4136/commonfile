@@ -34,4 +34,11 @@ async hashPassword(password:string,salt:string) :Promise<string>{
 /////////////////////////////////////////////////////////////Date Field
 
 
+////////////////////////////////////////////
+@Get('eligiblityCheck/:role/:doc')
+  eligiblityCheck(@Param('role') role: number, @Param('doc') doc: number) {
+    console.log('doc:', doc, 'role', role);
+
+    return this.permisssionsService.eligiblityCheck(doc, role);
+  }
 
