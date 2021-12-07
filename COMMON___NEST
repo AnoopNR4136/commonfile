@@ -27,8 +27,8 @@ npm i --save @nestjs/typeorm typeorm pg
      ConfigModule.forRoot(), //Can be use only in root module (ie app module)
      //Note : By registering env it look for the .env file in ROOT DIRECTORY.
      //OBJECT PASS to forRoot
-     //1> isGlobal :true => can be used in any modules
-     //2> envFilePath: '.development.env',  envFilePath: ['.env.development.local', '.env.development'], => other than default Path (ie ROOT DIRECTORY)
+     //1> isGlobal :true => can be used in any modules 
+     //2> envFilePath: '.development.env',  envFilePath: ['.env.development.local', '.env.development'], => other than default Path (ie ROOT DIRECTORY) OR {load :[configfileclass]}
      //3>validating env variables ==> we use envalid library for that =>npm install @hapi/joi @types/hapi__joi
      //  import * as Joi from '@hapi/joi';
      //
