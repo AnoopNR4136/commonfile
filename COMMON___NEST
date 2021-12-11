@@ -18,6 +18,8 @@ npm i --save @nestjs/typeorm typeorm pg
  
    npm i --save @nestjs/config    
  2>  //enabling/registering config
+ import { ConfigModule } from '@nestjs/config'
+ 
  
  ConfigModule.forRoot({
       isGlobal: true,   //can be used in any modules
