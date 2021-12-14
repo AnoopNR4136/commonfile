@@ -41,7 +41,9 @@ filters: {
 this.error = err.response.data.error;
 
 
-
+///////////////////////////////////////////////jwt
+npm install vuejs-jwt --save
+https://www.npmjs.com/package/vuejs-jwt
 
 
 
