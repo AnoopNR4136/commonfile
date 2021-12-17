@@ -135,3 +135,17 @@ import { uuid } from "vue-uuid";
 to page by code
 this.$router.push({ name: "Home" })
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+404 page not found
+
+
+routes:[
+{
+path:'/',
+name:component,
+component:component
+},{
+path:'*',
+redirect:{name:component}
+}
+]
