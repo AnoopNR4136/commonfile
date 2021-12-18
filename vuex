@@ -5,16 +5,64 @@ It serves as a centralized store for all the components in an application,
 with rules ensuring that the state can only be mutated in a predictable fashion. 
 
 1) state
-
+------------------
 state:{
-use{
+user{
 id:1,
 name:'Ann'}
 
 }
 
 //simply geting state values
-$store.state.user.name
+$store.state.user.name in templete
+this.$store.state.user.name in data
+
+using computed property
+1)
+    computed(){
+            userName(){
+                      return this.$store.state.user.name 
+                       }
+            userId(){
+                      return this.$store.state.user.id 
+                       }
+
+    }
+    
+2)using mapstate
+    import {mapstate } from 'vuex
+    computed:mapstate({
+        userName:state=>state.userName,
+        userId:state=>state.userId,
+    })
+    
+    simpler way (for top level state only from top level we can separate sub levels)
+     computed:mapstate({
+        user:'user' //top level object. user.name and user.id are sub level
+        
+    })
+    
+    another way for top level
+        computed:mapstate(['user'])
+--------------------------------------------------------------------------------------------------------------------------------------------    
+    
+getters
+--------------------------------------------------------------------------------------------------------------------------------------------
+in store.js
+
+getters:{
+calcLength:state=>{
+
+return state.user.length
+}
+}
+
+in .vue
+computed:{
+length(){
+return this.$store.getters.calcLength
+
+}
 
 
 
