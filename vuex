@@ -1,0 +1,49 @@
+
+
+Vuex is a state management pattern + library for Vue.js applications. 
+It serves as a centralized store for all the components in an application, 
+with rules ensuring that the state can only be mutated in a predictable fashion. 
+
+1) state
+
+state:{
+use{
+id:1,
+name:'Ann'}
+
+}
+
+//simply geting state values
+$store.state.user.name
+
+
+
+
+
+
+
+actions:{
+login({commit},user){
+
+    }
+}
+//Calling
+this.$store
+        .dispatch("login", {
+          user_email: this.email,
+          user_password: this.password,
+        })
+        ////////
+//mutation
+
+  mutations: {
+   
+     auth_success(state, token){
+    state.status = 'success'
+       state.token = token
+      
+  
+    },
+//caling
+
+commit('auth_success', token)
