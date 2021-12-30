@@ -130,10 +130,13 @@ import { uuid } from "vue-uuid";
 
 ////////////////////////////////click to
 
+in router
+path: "coach-edit/:data" with params
+
 :to="{ name: 'ProductView', params: { id: pdct.product_id } }"
 
 to page by code
-this.$router.push({ name: "Home" })
+this.$router.push({ name: "Home",params:{key:value} })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 404 page not found
