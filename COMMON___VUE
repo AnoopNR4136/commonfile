@@ -12,6 +12,7 @@ Axios
 
 npm install --save axios
 axios.defaults.baseURL = ""
+axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
 
       axios .post("/portal/upload/" + this.uuid, data, {
