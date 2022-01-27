@@ -1,0 +1,34 @@
+
+
+
+
+Service
+
+@Injectable()
+export class RoleService extends TypeOrmCrudService<Role> {
+  constructor(@InjectRepository(Role) repo: Repository<Role>) {
+    super(repo);
+  }
+}
+
+
+controller
+
+
+Crud({
+  model: {
+    type: Role,
+  },
+  dto: {
+    create: CreateRoleDto,
+    update: UpdateRoleDto,
+  },
+})
+
+export class RoleController implements CrudController<Role> {
+  constructor(public service: RoleService) {}
+}
+
+
+
+Already Exist
