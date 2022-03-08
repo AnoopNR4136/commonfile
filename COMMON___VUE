@@ -153,3 +153,40 @@ path:'*',
 redirect:{name:component}
 }
 ]
+
+/////////////////////////////////////////////////////////////////////////////
+
+download file
+
+ window.open(
+        `${apiLink}Private-vendor-offer/download-sample-private-offer/${this.season.id}`,
+        "Download"
+      );
+      
+      
+      with axios
+      
+       axios
+        .get(
+          "Private-vendor-offer/download-sample-private-offer/" +
+            this.season.id,
+
+          {
+            responseType: "blob",
+          }
+        )
+        .then((res) => {
+          const url = URL.createObjectURL(
+            new Blob([res.data], {
+              type: "application/vnd.ms-excel",
+            })
+          );
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "sample-private-vendor-offer.xlsx");
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
